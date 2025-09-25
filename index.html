@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sushi Sprint (寿司短距離走) - Multiplayer Mobile Racing Game | Free Online Game 2025</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Play Sushi Sprint, the ultimate multiplayer mobile racing game! Race against 3 players worldwide in this 8-bit NES-style 100-meter dash. Tap red buttons to sprint to victory. Free to play online.">
+  <meta name="keywords" content="sushi sprint, multiplayer racing game, mobile game, online racing, 8-bit game, NES style, multiplayer dash, free mobile game, browser game, sushi racing, tap game, arcade racing">
+  <meta name="author" content="Sushi Sprint Game Studio">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Sushi Sprint - Multiplayer Mobile Racing Game">
+  <meta property="og:description" content="Race against 3 players worldwide in this epic sushi-themed 100-meter dash! Tap red buttons to sprint to victory in classic 8-bit NES style.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sushi-sprint.replit.app">
+  <meta property="og:image" content="https://sushi-sprint.replit.app/og-image.jpg">
+  <meta property="og:site_name" content="Sushi Sprint">
+  <meta property="og:locale" content="en_US">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sushi Sprint - Multiplayer Mobile Racing Game">
+  <meta name="twitter:description" content="Race against 3 players worldwide! Tap red buttons to sprint to victory in this epic sushi-themed racing game.">
+  <meta name="twitter:image" content="https://sushi-sprint.replit.app/twitter-card.jpg">
+  
+  <!-- Game Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGame",
+    "name": "Sushi Sprint",
+    "alternateName": "寿司短距離走",
+    "description": "Multiplayer mobile racing game featuring 8-bit NES-style 100-meter dash where 4 players compete by tapping red buttons",
+    "genre": ["Racing", "Arcade", "Multiplayer"],
+    "platform": ["Mobile", "Web Browser"],
+    "operatingSystem": ["iOS", "Android", "Web"],
+    "applicationCategory": "Game",
+    "gamePlatform": ["Mobile", "Web"],
+    "playMode": "MultiPlayer",
+    "numberOfPlayers": "4",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Sushi Sprint Game Studio"
+    }
+  }
+  </script>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+</head>
+<body>
+  <!-- Ticker Tape Banner -->
+  <div class="ticker-tape">
+    <div class="ticker-content">
+      <div class="ticker-racers">
+        <span class="ticker-text">CALLING ALL SUSHI RACERS! 全寿司レーサー募集中！</span>
+        <img src="tamago_nigri_1_1758778807644.png" alt="Tamago" class="ticker-character" />
+        <span class="ticker-text">TAMAGO FROM TOKYO!</span>
+        <img src="salmon_nigiri_1_1758778810922.png" alt="Salmon" class="ticker-character" />
+        <span class="ticker-text">SALMON FROM HOKKAIDO!</span>
+        <img src="maki_roll_1_1758778814273.png" alt="Maki" class="ticker-character" />
+        <span class="ticker-text">MAKI ROLL FROM KYOTO!</span>
+        <img src="Pixel_art_tuna_sushi_character_2b4e9102.png" alt="Maguro" class="ticker-character" />
+        <span class="ticker-text">MAGURO FROM TSUKIJI!</span>
+        <img src="tamago_nigri_1_1758778807644.png" alt="Tamago" class="ticker-character" />
+        <span class="ticker-text">東京のタマゴ！</span>
+        <img src="salmon_nigiri_1_1758778810922.png" alt="Salmon" class="ticker-character" />
+        <span class="ticker-text">北海道のサーモン！</span>
+        <img src="maki_roll_1_1758778814273.png" alt="Maki" class="ticker-character" />
+        <span class="ticker-text">京都のマキロール！</span>
+        <img src="Pixel_art_tuna_sushi_character_2b4e9102.png" alt="Maguro" class="ticker-character" />
+        <span class="ticker-text">築地のマグロ！</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <!-- Logo -->
+      <div class="logo-container">
+        <h1 class="main-logo">
+          <span class="logo-shadow">SUSHI<br>SPRINT</span>
+          <span class="logo-main">SUSHI<br>SPRINT</span>
+        </h1>
+      </div>
+      
+      <!-- Japanese subtitle -->
+      <div class="japanese-subtitle">
+        <h2>
+          <span class="japanese-shadow">寿司短距離走</span>
+          <span class="japanese-main">寿司短距離走</span>
+        </h2>
+      </div>
+      
+      <!-- Tagline -->
+      <p class="tagline">TAP FAST. RUN FASTER.</p>
+      
+      <!-- Main description -->
+      <div class="hero-description">
+        <p>RACE AGAINST 3 PLAYERS WORLDWIDE!<br>TAP THE RED BUTTONS TO SPRINT TO VICTORY!</p>
+      </div>
+      
+      <!-- Play button -->
+      <button class="play-button" onclick="startGame()">
+        PLAY NOW
+      </button>
+    </div>
+  </section>
+
+  <!-- How to Play Section -->
+  <section class="how-to-play-section" id="how-to-play">
+    <div class="container">
+      <div class="section-header">
+        <h2>HOW TO PLAY</h2>
+        <div class="section-divider"></div>
+      </div>
+      
+      <div class="how-to-play-grid">
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-number step-1">1</div>
+            <div class="step-content">
+              <h3>TAP THE RED BUTTONS</h3>
+              <p>Alternate between the two red buttons as fast as you can to build speed and sprint ahead!</p>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number step-2">2</div>
+            <div class="step-content">
+              <h3>RACE 100 METERS</h3>
+              <p>Sprint down the track in this classic arcade-style dash to the finish line!</p>
+            </div>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number step-3">3</div>
+            <div class="step-content">
+              <h3>BEAT YOUR OPPONENTS</h3>
+              <p>Compete against 3 other players from around the world in real-time multiplayer races!</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="controls-demo">
+          <div class="controls-card">
+            <h3>CONTROLS</h3>
+            <div class="button-demo">
+              <div class="demo-button">
+                <div class="red-button button-a" id="buttonA"></div>
+                <div class="button-label">BUTTON A</div>
+              </div>
+              <div class="demo-button">
+                <div class="red-button button-b" id="buttonB"></div>
+                <div class="button-label">BUTTON B</div>
+              </div>
+            </div>
+            <div class="tap-instruction">TAP ALTERNATELY FOR MAX SPEED!</div>
+            <div class="tap-sequence">A → B → A → B → A → B...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet the Racers Section -->
+  <section class="meet-racers-section" id="characters">
+    <div class="container">
+      <div class="section-header">
+        <h2>MEET THE RACERS</h2>
+        <div class="section-divider"></div>
+        <p class="auto-assign">You're automatically assigned to race! Tap fastest to win!</p>
+      </div>
+      
+      <div class="characters-grid">
+        <div class="character-card">
+          <div class="character-image">
+            <div class="sushi-tamago"></div>
+          </div>
+          <h3>TAMAGO</h3>
+          <div class="character-origin">
+            <div class="origin-label">FROM</div>
+            <div class="origin-value">TOKYO</div>
+          </div>
+          <div class="character-special">SUNSHINE SMILE</div>
+          <p class="character-description">Sweet & cheerful personality with sunny disposition</p>
+        </div>
+        
+        <div class="character-card">
+          <div class="character-image">
+            <div class="sushi-salmon"></div>
+          </div>
+          <h3>SALMON</h3>
+          <div class="character-origin">
+            <div class="origin-label">FROM</div>
+            <div class="origin-value">HOKKAIDO</div>
+          </div>
+          <div class="character-special">WAVE RIDER</div>
+          <p class="character-description">Cool & collected with oceanic vibes</p>
+        </div>
+        
+        <div class="character-card">
+          <div class="character-image">
+            <div class="sushi-maki"></div>
+          </div>
+          <h3>MAKI ROLL</h3>
+          <div class="character-origin">
+            <div class="origin-label">FROM</div>
+            <div class="origin-value">KYOTO</div>
+          </div>
+          <div class="character-special">ZEN MASTER</div>
+          <p class="character-description">Perfectly balanced with zen-like focus</p>
+        </div>
+        
+        <div class="character-card">
+          <div class="character-image">
+            <div class="sushi-maguro"></div>
+          </div>
+          <h3>MAGURO</h3>
+          <div class="character-origin">
+            <div class="origin-label">FROM</div>
+            <div class="origin-value">TSUKIJI</div>
+          </div>
+          <div class="character-special">CHAMPION HEART</div>
+          <p class="character-description">Premium personality with competitive spirit</p>
+        </div>
+      </div>
+      
+      <div class="cta-container">
+        <div class="cta-badge">READY TO RACE? TAP PLAY NOW!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="copyright">SUSHI SPRINT © 2025</div>
+        <div class="japanese-tagline">寿司短距離走 - The Ultimate Sushi Racing Experience</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="sushi-sprint-chiptune.ogg" type="audio/ogg">
+    <source src="sushi-sprint-chiptune.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Music Control Button -->
+  <button id="musicToggle" class="music-toggle">🎵</button>
+
+  <script>
+    let musicPlaying = false;
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+
+    // Set volume to 30% for background music
+    bgMusic.volume = 0.3;
+
+    function toggleMusic() {
+      if (musicPlaying) {
+        bgMusic.pause();
+        musicToggle.textContent = '🔇';
+        musicToggle.title = 'Play Music';
+      } else {
+        bgMusic.play().catch(e => {
+          console.log('Music autoplay blocked by browser');
+        });
+        musicToggle.textContent = '🎵';
+        musicToggle.title = 'Pause Music';
+      }
+      musicPlaying = !musicPlaying;
+    }
+
+    // Music toggle click handler
+    musicToggle.addEventListener('click', toggleMusic);
+
+    // Try to start music on first user interaction
+    function startMusicOnInteraction() {
+      if (!musicPlaying) {
+        toggleMusic();
+      }
+      // Remove the event listeners after first interaction
+      document.removeEventListener('click', startMusicOnInteraction);
+      document.removeEventListener('keydown', startMusicOnInteraction);
+    }
+
+    // Add event listeners for first user interaction
+    document.addEventListener('click', startMusicOnInteraction);
+    document.addEventListener('keydown', startMusicOnInteraction);
+
+    function startGame() {
+      // Game launch logic would go here
+      alert('Game would launch here! 🍣🏃‍♂️');
+    }
+  </script>
+</body>
+</html>

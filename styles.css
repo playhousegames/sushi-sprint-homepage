@@ -1,0 +1,616 @@
+/* SUSHI SPRINT - Mobile Racing Game CSS */
+
+/* Color Palette */
+:root {
+  /* Vibrant Sushi Racing Palette */
+  --hot-tuna-red: hsl(345, 100%, 60%); /* #FF3366 */
+  --pure-rice-white: hsl(0, 0%, 100%); /* #FFFFFF */
+  --electric-wasabi: hsl(146, 100%, 50%); /* #00FF88 */
+  --golden-tamago: hsl(51, 100%, 50%); /* #FFD700 */
+  --ocean-blue: hsl(220, 100%, 50%); /* #0066FF */
+}
+
+/* Ticker Tape Banner */
+.ticker-tape {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: var(--hot-tuna-red);
+  border-bottom: 2px solid var(--ocean-blue);
+  overflow: hidden;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-content {
+  white-space: nowrap;
+  animation: scroll-left 30s linear infinite;
+}
+
+.ticker-racers {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ticker-text {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--pure-rice-white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.ticker-character {
+  width: 24px;
+  height: 24px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.6;
+  color: var(--ocean-blue);
+  background: var(--pure-rice-white);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  background: var(--electric-wasabi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 20px 40px 20px; /* Added top padding for ticker tape */
+}
+
+.hero-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background: 
+    radial-gradient(circle at 25% 25%, var(--hot-tuna-red) 3px, transparent 3px),
+    radial-gradient(circle at 75% 75%, var(--ocean-blue) 2px, transparent 2px),
+    radial-gradient(circle at 50% 10%, var(--golden-tamago) 2px, transparent 2px),
+    radial-gradient(circle at 20% 80%, var(--hot-tuna-red) 1px, transparent 1px),
+    radial-gradient(circle at 80% 20%, var(--ocean-blue) 3px, transparent 3px),
+    radial-gradient(circle at 40% 60%, var(--golden-tamago) 1px, transparent 1px);
+  background-size: 120px 120px, 90px 90px, 140px 140px, 100px 100px, 130px 130px, 80px 80px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 900px;
+}
+
+/* Logo Styles */
+.logo-container {
+  margin-bottom: 48px;
+}
+
+.main-logo {
+  position: relative;
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 0.9;
+}
+
+.logo-shadow {
+  position: absolute;
+  inset: 0;
+  color: var(--ocean-blue);
+  text-shadow: 
+    4px 4px 0px currentColor,
+    -4px -4px 0px currentColor,
+    4px -4px 0px currentColor,
+    -4px 4px 0px currentColor,
+    4px 0px 0px currentColor,
+    -4px 0px 0px currentColor,
+    0px 4px 0px currentColor,
+    0px -4px 0px currentColor;
+  -webkit-text-stroke: 4px currentColor;
+}
+
+.logo-main {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(45deg, var(--hot-tuna-red), var(--golden-tamago));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Japanese Subtitle */
+.japanese-subtitle {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.japanese-subtitle h2 {
+  position: relative;
+  font-family: 'Noto Sans JP', serif;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-weight: bold;
+}
+
+.japanese-shadow {
+  position: absolute;
+  color: var(--ocean-blue);
+  text-shadow: 
+    2px 2px 0px currentColor,
+    -2px -2px 0px currentColor,
+    2px -2px 0px currentColor,
+    -2px 2px 0px currentColor;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+.japanese-main {
+  position: relative;
+  z-index: 10;
+  color: var(--pure-rice-white);
+}
+
+/* Tagline */
+.tagline {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pure-rice-white);
+  margin-bottom: 32px;
+}
+
+/* Hero Description */
+.hero-description {
+  margin-bottom: 32px;
+}
+
+.hero-description p {
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-weight: bold;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  color: var(--pure-rice-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Play Button */
+.play-button {
+  background: var(--hot-tuna-red);
+  color: var(--pure-rice-white);
+  border: 4px solid var(--ocean-blue);
+  padding: 16px 32px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 4px 4px 0px var(--ocean-blue);
+}
+
+.play-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--ocean-blue);
+}
+
+.play-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--ocean-blue);
+}
+
+/* How to Play Section */
+.how-to-play-section {
+  background: var(--hot-tuna-red);
+  padding: 64px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: var(--pure-rice-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-divider {
+  width: 64px;
+  height: 8px;
+  background: var(--golden-tamago);
+  border: 2px solid var(--ocean-blue);
+  margin: 0 auto;
+}
+
+.how-to-play-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .how-to-play-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.step-card {
+  background: var(--pure-rice-white);
+  border: 4px solid var(--ocean-blue);
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--ocean-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+  flex-shrink: 0;
+  color: var(--ocean-blue);
+}
+
+.step-1 { background: var(--electric-wasabi); }
+.step-2 { background: var(--ocean-blue); color: var(--pure-rice-white); }
+.step-3 { background: var(--golden-tamago); }
+
+.step-content h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--ocean-blue);
+}
+
+.step-content p {
+  font-size: 0.875rem;
+  color: var(--ocean-blue);
+  line-height: 1.5;
+}
+
+/* Controls Demo */
+.controls-card {
+  background: var(--pure-rice-white);
+  border: 4px solid var(--ocean-blue);
+  padding: 32px;
+  text-align: center;
+}
+
+.controls-card h3 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: var(--ocean-blue);
+}
+
+.button-demo {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 24px;
+}
+
+.demo-button {
+  text-align: center;
+}
+
+.red-button {
+  width: 64px;
+  height: 64px;
+  background-image: url('red_button_not_pressed_1758784800937.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto 8px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.red-button.pressed {
+  background-image: url('red_button_pressed_1758784800937.png');
+}
+
+/* Button Animation */
+.button-a {
+  animation: buttonPressA 1.2s infinite;
+}
+
+.button-b {
+  animation: buttonPressB 1.2s infinite;
+}
+
+@keyframes buttonPressA {
+  0% { background-image: url('red_button_pressed_1758784800937.png'); }
+  50% { background-image: url('red_button_not_pressed_1758784800937.png'); }
+  100% { background-image: url('red_button_pressed_1758784800937.png'); }
+}
+
+@keyframes buttonPressB {
+  0% { background-image: url('red_button_not_pressed_1758784800937.png'); }
+  50% { background-image: url('red_button_pressed_1758784800937.png'); }
+  100% { background-image: url('red_button_not_pressed_1758784800937.png'); }
+}
+
+.button-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--ocean-blue);
+}
+
+.tap-instruction {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--electric-wasabi);
+}
+
+.tap-sequence {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--ocean-blue);
+}
+
+/* Meet the Racers Section */
+.meet-racers-section {
+  background: var(--ocean-blue);
+  padding: 64px 0;
+}
+
+.meet-racers-section .section-header h2 {
+  color: var(--pure-rice-white);
+}
+
+.meet-racers-section .section-divider {
+  background: var(--golden-tamago);
+  border-color: var(--pure-rice-white);
+}
+
+.auto-assign {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--pure-rice-white);
+  margin-top: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.character-card {
+  background: var(--pure-rice-white);
+  border: 4px solid var(--hot-tuna-red);
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.character-card:hover {
+  transform: scale(1.05);
+}
+
+.character-image {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+.sushi-tamago, .sushi-salmon, .sushi-maki, .sushi-maguro {
+  width: 64px;
+  height: 64px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  image-rendering: pixelated;
+}
+
+.sushi-tamago { background-color: var(--golden-tamago); }
+.sushi-salmon { background-color: var(--hot-tuna-red); }
+.sushi-maki { background-color: var(--electric-wasabi); }
+.sushi-maguro { background-color: var(--ocean-blue); }
+
+.character-card h3 {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--ocean-blue);
+}
+
+.character-origin {
+  margin-bottom: 12px;
+}
+
+.origin-label {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: var(--ocean-blue);
+}
+
+.origin-value {
+  padding: 4px 8px;
+  border: 2px solid var(--ocean-blue);
+  background: var(--golden-tamago);
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--ocean-blue);
+  display: inline-block;
+}
+
+.character-special {
+  padding: 4px 8px;
+  border: 2px solid var(--ocean-blue);
+  background: var(--electric-wasabi);
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--ocean-blue);
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.character-description {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  font-weight: bold;
+  color: var(--ocean-blue);
+}
+
+.cta-container {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.cta-badge {
+  display: inline-block;
+  padding: 16px 24px;
+  border: 4px solid var(--pure-rice-white);
+  background: var(--hot-tuna-red);
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--pure-rice-white);
+}
+
+/* Footer */
+.footer {
+  background: var(--golden-tamago);
+  border-top: 4px solid var(--ocean-blue);
+  padding: 32px 0;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: var(--ocean-blue);
+}
+
+.japanese-tagline {
+  font-family: 'Noto Sans JP', serif;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--hot-tuna-red);
+}
+
+/* Music Toggle Button */
+.music-toggle {
+  position: fixed;
+  top: 52px; /* Moved down to accommodate ticker tape */
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: var(--hot-tuna-red);
+  border: 3px solid var(--ocean-blue);
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0px var(--ocean-blue);
+  transition: all 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 3px 3px 0px var(--ocean-blue);
+}
+
+.music-toggle:active {
+  transform: scale(0.95);
+  box-shadow: 1px 1px 0px var(--ocean-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .characters-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  
+  .button-demo {
+    gap: 16px;
+  }
+  
+  .red-button {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 20px;
+  }
+  
+  .step-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .step-number {
+    align-self: center;
+  }
+}
