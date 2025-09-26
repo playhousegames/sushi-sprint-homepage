@@ -115,6 +115,15 @@ body {
   max-width: 900px;
 }
 
+.title-logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 24px; /* centers + adds spacing above text */
+  image-rendering: pixelated;
+}
+
+
 /* Logo Styles */
 .logo-container {
   margin-bottom: 48px;

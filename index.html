@@ -35,6 +35,12 @@
   <meta property="og:image" content="https://sushi-sprint.replit.app/og-image.jpg">
   <meta property="og:site_name" content="Sushi Sprint">
   <meta property="og:locale" content="en_US">
+
+  <!-- Button Sound Effect -->
+<audio id="buttonSound" preload="auto">
+  <source src="button.mp3" type="audio/mpeg">
+</audio>
+
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -96,32 +102,37 @@
       <span class="ticker-text">SALMON FROM HOKKAIDO!</span>
       <img src="maki_roll.png" alt="Maki" class="ticker-character" />
       <span class="ticker-text">MAKI ROLL FROM KYOTO!</span>
-      <img src="tuna_sushi.png" alt="Maguro" class="ticker-character" />
-      <span class="ticker-text">MAGURO FROM TSUKIJI!</span>
+      <img src="tuna_sushi.png" alt="Tobiko" class="ticker-character" />
+      <span class="ticker-text">TOBIKO GUNKAN MAKI</span>
       <img src="tamago_nigri.png" alt="Tamago" class="ticker-character" />
       <span class="ticker-text">東京のタマゴ！</span>
       <img src="salmon_nigiri.png" alt="Salmon" class="ticker-character" />
       <span class="ticker-text">北海道のサーモン！</span>
       <img src="maki_roll.png" alt="Maki" class="ticker-character" />
       <span class="ticker-text">京都のマキロール！</span>
-      <img src="tuna_sushi.png" alt="Maguro" class="ticker-character" />
-      <span class="ticker-text">築地のマグロ！</span>
+      <img src="tuna_sushi.png" alt="Tobiko" class="ticker-character" />
+      <span class="ticker-text">大阪のとびこ軍艦巻き！</span>
     </div>
   </div>
 </div>
 
 
   <!-- Hero Section -->
-  <section class="hero-section" id="home">
-    <div class="hero-pattern"></div>
-    <div class="hero-content">
-      <!-- Logo -->
-      <div class="logo-container">
-        <h1 class="main-logo">
-          <span class="logo-shadow">SUSHI<br>SPRINT</span>
-          <span class="logo-main">SUSHI<br>SPRINT</span>
-        </h1>
-      </div>
+<section class="hero-section" id="home">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <!-- Logo -->
+    <div class="logo-container">
+      <!-- Sushi Sprint Title Image -->
+      <img src="sushi_sprint_title_motion.png" alt="Sushi Sprint Title" class="title-logo">
+
+      <!-- Text Logo -->
+      <h1 class="main-logo">
+        <span class="logo-shadow">SUSHI<br>SPRINT</span>
+        <span class="logo-main">SUSHI<br>SPRINT</span>
+      </h1>
+    </div>
+
       
       <!-- Japanese subtitle -->
       <div class="japanese-subtitle">
@@ -253,12 +264,12 @@
       
       <div class="character-card">
         <div class="character-image">
-          <img src="tamago_nigri.png" alt="Maguro" class="sushi-character">
+          <img src="tobiko.png" alt="Maguro" class="sushi-character">
         </div>
-        <h3>MAGURO</h3>
+        <h3>TOBIKO GUNKAN MAKI</h3>
         <div class="character-origin">
           <div class="origin-label">FROM</div>
-          <div class="origin-value">TSUKIJI</div>
+          <div class="origin-value">OSAKA</div>
         </div>
         <div class="character-special">CHAMPION HEART</div>
         <p class="character-description">Premium personality with competitive spirit</p>
@@ -282,59 +293,86 @@
     </div>
   </footer>
 
-  <!-- Background Music -->
-  <audio id="bgMusic" loop preload="auto">
-    <source src="sushi-sprint-chiptune.ogg" type="audio/ogg">
-    <source src="sushi-sprint-chiptune.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+ <!-- Background Music -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="sushi-sprint-chiptune.ogg" type="audio/ogg">
+  <source src="sushi-sprint-chiptune.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
-  <!-- Music Control Button -->
-  <button id="musicToggle" class="music-toggle">🎵</button>
+<!-- Button Sound Effect -->
+<audio id="buttonSound" preload="auto">
+  <source src="button.mp3" type="audio/mpeg">
+</audio>
 
-  <script>
-    let musicPlaying = false;
-    const bgMusic = document.getElementById('bgMusic');
-    const musicToggle = document.getElementById('musicToggle');
+<!-- Music Control Button -->
+<button id="musicToggle" class="music-toggle">🎵</button>
 
-    // Set volume to 30% for background music
-    bgMusic.volume = 0.3;
+<script>
+  let musicPlaying = false;
+  const bgMusic = document.getElementById('bgMusic');
+  const musicToggle = document.getElementById('musicToggle');
+  const buttonSound = document.getElementById('buttonSound');
 
-    function toggleMusic() {
-      if (musicPlaying) {
-        bgMusic.pause();
-        musicToggle.textContent = '🔇';
-        musicToggle.title = 'Play Music';
-      } else {
-        bgMusic.play().catch(e => {
-          console.log('Music autoplay blocked by browser');
-        });
-        musicToggle.textContent = '🎵';
-        musicToggle.title = 'Pause Music';
-      }
-      musicPlaying = !musicPlaying;
+  // Set volume to 30% for background music
+  bgMusic.volume = 0.3;
+
+  function toggleMusic() {
+    if (musicPlaying) {
+      bgMusic.pause();
+      musicToggle.textContent = '🔇';
+      musicToggle.title = 'Play Music';
+    } else {
+      bgMusic.play().catch(e => {
+        console.log('Music autoplay blocked by browser');
+      });
+      musicToggle.textContent = '🎵';
+      musicToggle.title = 'Pause Music';
+    }
+    musicPlaying = !musicPlaying;
+  }
+
+  // Music toggle click handler
+  musicToggle.addEventListener('click', toggleMusic);
+
+  // ✅ Auto-play background music on page load
+  window.addEventListener('load', () => {
+    bgMusic.play().then(() => {
+      musicPlaying = true;
+      musicToggle.textContent = '🎵';
+      musicToggle.title = 'Pause Music';
+    }).catch(e => {
+      console.log("Autoplay blocked, waiting for interaction");
+    });
+  });
+
+async function startGame() {
+  try {
+    // Ensure background music starts
+    if (!musicPlaying) {
+      await bgMusic.play();
+      musicPlaying = true;
+      musicToggle.textContent = '🎵';
+      musicToggle.title = 'Pause Music';
     }
 
-    // Music toggle click handler
-    musicToggle.addEventListener('click', toggleMusic);
+    // Play button sound (this will work because it's a direct user click)
+    buttonSound.currentTime = 0;
+    await buttonSound.play();
 
-    // Try to start music on first user interaction
-    function startMusicOnInteraction() {
-      if (!musicPlaying) {
-        toggleMusic();
-      }
-      // Remove the event listeners after first interaction
-      document.removeEventListener('click', startMusicOnInteraction);
-      document.removeEventListener('keydown', startMusicOnInteraction);
-    }
+    // Redirect only after button sound finishes
+    buttonSound.onended = () => {
+      window.location.href = "https://play.sushisprint.io";
+    };
 
-    // Add event listeners for first user interaction
-    document.addEventListener('click', startMusicOnInteraction);
-    document.addEventListener('keydown', startMusicOnInteraction);
+  } catch (err) {
+    console.log("Error starting game or playing sound:", err);
+    window.location.href = "https://play.sushisprint.io";
+  }
+}
 
-   function startGame() {
-  window.location.href = "https://www.play.sushisprint.io";
-    }
-  </script>
+
+</script>
+
 </body>
 </html>
