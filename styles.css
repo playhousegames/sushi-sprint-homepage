@@ -53,6 +53,75 @@
   flex-shrink: 0;
 }
 
+/* Japanese text pulse animation */
+/* Japanese text pulse animation - Electric Blue version */
+@keyframes pulseGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--ocean-blue),
+                 0 0 20px var(--ocean-blue),
+                 0 0 40px var(--electric-wasabi);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--electric-wasabi),
+                 0 0 40px var(--ocean-blue),
+                 0 0 60px var(--ocean-blue);
+    transform: scale(1.05);
+  }
+}
+
+.japanese-main {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+
+.japanese-main {
+  animation: pulseGlowBlue 2.2s ease-in-out infinite;
+}
+
+
+.japanese-main {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Title logo slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.title-logo {
+  animation: slideIn 1.2s ease-out forwards;
+}
+
+@keyframes floatMotion {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.title-logo {
+  animation: floatMotion 3s ease-in-out infinite;
+}
+
+.play-button:hover {
+  animation: wobble 0.3s ease-in-out;
+}
+
+@keyframes wobble {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(1deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
 @keyframes scroll-left {
   0% {
     transform: translateX(100%);
@@ -172,7 +241,7 @@ body {
 .japanese-subtitle h2 {
   position: relative;
   font-family: 'Noto Sans JP', serif;
-  font-size: clamp(1.2rem, 4vw, 2rem);
+  font-size: clamp(4rem, 6vw, 4rem);
   font-weight: bold;
 }
 

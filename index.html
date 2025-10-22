@@ -4,21 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sushi Sprint (寿司短距離走) - Multiplayer Mobile Racing Game | Free Online Game 2025</title>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6069110732719713"
-     crossorigin="anonymous"></script>
+      <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6069110732719713"
+     crossorigin="anonymous"></script> -->
 
   <!-- Google tag (gtag.js) -->
+<!-- GA4 + Consent Mode v2 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-KKHV8Z4F4G"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag(){ dataLayer.push(arguments); }
 
-  gtag('config', 'G-KKHV8Z4F4G', {
-    'linker': {
-      'domains': ['sushisprint.io', 'play.sushisprint.io']
-    }
+  // Default everything to denied until the user chooses
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    wait_for_update: 500
   });
+
+  gtag('js', new Date());
+  gtag('config', 'G-KKHV8Z4F4G', {
+    // keep sessions if users jump between marketing + play
+    linker: { domains: ['sushi.io','play.sushi.io','www.sushi.io'] }
+  });
+
+  // Read your consent cookie on load and sync Consent Mode
+  (function () {
+    var m = document.cookie.match(/(?:^|; )ss_consent=([^;]+)/);
+    var granted = m && decodeURIComponent(m[1]) === 'analytics_granted';
+    gtag('consent', 'update', { analytics_storage: granted ? 'granted' : 'denied' });
+  })();
 </script>
 
   <!-- SEO Meta Tags -->
@@ -103,7 +119,7 @@
       <span class="ticker-text">SALMON FROM HOKKAIDO!</span>
       <img src="maki_roll.png" alt="Maki" class="ticker-character" />
       <span class="ticker-text">MAKI ROLL FROM KYOTO!</span>
-      <img src="tuna_sushi.png" alt="Tobiko" class="ticker-character" />
+      <img src="tobiko.png" alt="Tobiko" class="ticker-character" />
       <span class="ticker-text">TOBIKO GUNKAN MAKI</span>
       <img src="tamago_nigri.png" alt="Tamago" class="ticker-character" />
       <span class="ticker-text">東京のタマゴ！</span>
@@ -111,7 +127,7 @@
       <span class="ticker-text">北海道のサーモン！</span>
       <img src="maki_roll.png" alt="Maki" class="ticker-character" />
       <span class="ticker-text">京都のマキロール！</span>
-      <img src="tuna_sushi.png" alt="Tobiko" class="ticker-character" />
+      <img src="tobiko.png" alt="Tobiko" class="ticker-character" />
       <span class="ticker-text">大阪のとびこ軍艦巻き！</span>
     </div>
   </div>
@@ -125,7 +141,7 @@
     <!-- Logo -->
     <div class="logo-container">
       <!-- Sushi Sprint Title Image -->
-      <img src="sushi_sprint_title_motion.png" alt="Sushi Sprint Title" class="title-logo">
+      <img src="sushi_sprint_title_red_shoes_motion.png" alt="Sushi Sprint Title" class="title-logo">
 
       <!-- Text Logo -->
       <h1 class="main-logo">
@@ -373,6 +389,80 @@ async function startGame() {
 }
 
 
+</script>
+
+<div id="cookieBanner" style="font-size:0.6em;position:fixed;bottom:0;left:0;right:0;background:#000;color:#fff;padding:10px;text-align:center;z-index:6000;display:none;">
+  This site uses cookies for analytics only. No ads.
+  <button id="acceptCookies" style="margin-left:8px;padding:4px 10px;border:none;background:#444;color:#fff;border-radius:4px;cursor:pointer;">
+    OK
+  </button>
+  <button id="rejectCookies" style="margin-left:8px;padding:4px 10px;border:none;background:#2a2a2a;color:#ddd;border-radius:4px;cursor:pointer;">
+    No thanks
+  </button>
+</div>
+
+<script>
+  (function(){
+    var banner = document.getElementById('cookieBanner');
+
+    // Helper: set cookie (1 year)
+    function setConsentCookie(val) {
+      var maxAge = 60*60*24*365;
+      // If both sites are under sushi.io, use Domain=.sushi.io
+      // If they are under sushio.io, use Domain=.sushio.io
+      var domain = ".sushi.io";  // <-- change to ".sushio.io" if that's your apex
+      document.cookie = "ss_consent=" + encodeURIComponent(val)
+        + "; Max-Age=" + maxAge
+        + "; Path=/"
+        + "; Domain=" + domain
+        + "; SameSite=Lax"
+        + "; Secure";
+    }
+
+    function getConsent() {
+      var m = document.cookie.match(/(?:^|; )ss_consent=([^;]+)/);
+      return m ? decodeURIComponent(m[1]) : null;
+    }
+
+    function updateCookiePadding() {
+      var visible = banner && banner.style.display !== 'none';
+      var h = visible ? (banner.offsetHeight || 0) : 0;
+      document.documentElement.style.setProperty('--cookieH', h + 'px');
+    }
+
+    function showIfNeeded() {
+      var c = getConsent();
+      if (!c) {
+        banner.style.display = 'block';
+        updateCookiePadding();
+      } else {
+        banner.style.display = 'none';
+        updateCookiePadding();
+      }
+    }
+
+    function acceptAnalytics(){
+      setConsentCookie('analytics_granted');
+      gtag('consent','update',{ analytics_storage: 'granted' });
+      banner.style.display = 'none';
+      updateCookiePadding();
+    }
+
+    function rejectAll(){
+      setConsentCookie('denied');
+      gtag('consent','update',{
+        ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied'
+      });
+      banner.style.display = 'none';
+      updateCookiePadding();
+    }
+
+    document.getElementById('acceptCookies').onclick = acceptAnalytics;
+    document.getElementById('rejectCookies').onclick = rejectAll;
+
+    window.addEventListener('load', showIfNeeded);
+    window.addEventListener('resize', updateCookiePadding);
+  })();
 </script>
 
 </body>
